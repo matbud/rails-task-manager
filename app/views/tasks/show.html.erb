@@ -1,6 +1,15 @@
-<h2><%= "#{@task.title} - completed: #{@task.completed ? "yes" : "no"}" %></h2>
-<p><%= @task.details %></p>
+<h2><%= @task.title %></h2>
+<p>
+  <%= @task.details %>
+</p>
 
+<% if @task.completed %>
+  <i class="far fa-check-square"></i> <span>This task has been completed</span>
+<% else %>
+  <i class="far fa-square"></i> <span>This task has not been completed yet</span>
+<% end %>
+
+<br>
 <%= link_to "Edit the task", edit_task_path(@task) %>
 <br>
 <%= link_to "Delete the task", task_path(@task),
